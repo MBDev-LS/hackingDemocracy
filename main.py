@@ -9,6 +9,7 @@ class MemberOfParliament():
 		self.id = mpId
 		self.name = None
 		self.addressAs = None
+		self.website = None
 
 		fetchedInfo = self.fetch_info()
 
@@ -38,7 +39,9 @@ class MemberOfParliament():
 	def refresh_address_as(self, fetchedInfo: dict=None) -> None:
 		self.addressAs = fetchedInfo['nameAddressAs']
 	
-	
+	@__fetch_info_if_missing
+	def refresh_all_info(self, fetchedInfo: dict=None) -> None:
+		self.addressAs = fetchedInfo['nameAddressAs']
 
 
 mp = MemberOfParliament(4000)
